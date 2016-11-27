@@ -4,21 +4,24 @@
 %
 % This script numerically solves 2nd-order ODE
 % 
-% d^2y/dt^2 = -eps/(1+y)^2, y(0)=0, dy/dt(0)=eps
+% d^2y/dt^2 = <..eq..>
 %
 % and then plots the solution.
 %
 % The right-hand side of the equation is defined in 
-% the matlab function file 'rhs_projectileB.m'. 
+% the matlab function file forces.m
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 hold on
 
+% Declare parameters as global.
+% d1 distance from left wall to atom
+% d2 distance from right wall to atom
 global eps;
 global d1;
 global d2;
 global sigma;
-          % Declare epsilon as global.
+
 eps = 1;
 d1 = 1;
 d2 = 1;
