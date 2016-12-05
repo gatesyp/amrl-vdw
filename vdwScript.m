@@ -18,10 +18,10 @@ global m;
 global sigma;
 
 eps = 1;     % Set the value of epsilon.
-D = 1;
+D = 2;
 x = 1;
 m = 1;
-sigma = .5;
+sigma = 1;
 
 init = [0 D];   % Set the initial condition of the ODE.
 
@@ -32,18 +32,21 @@ t = [0 10];     % Define the time interval over which solution will be computed.
 
 % Set some options used in the next command.  Do not worry about this for now.
 options = odeset('RelTol',1e-8, 'AbsTol',1e-8);
-
+for v = 0:.1:D
+    x = v
+    
 % Numerically solve the equation.  See 'ode45' in matlab help for more info on this commmand. 
-[T,Y] = ode45(@vdw,t,init,options);
+    [T,Y] = ode45(@vdw,t,init,options);
 
 
 % Plot the solution. 
 
 % position
-subplot(2,1,1)
-set(gca,'FontSize',24)
-plot(T,Y(:,1))  % See 'colon' in matlab help for why we use 'Y(:,1)' here.  
-%title(['y versus tau, eps=', num2str(eps)])
+    subplot(2,1,1)
+    set(gca,'FontSize',24)
+    plot(T,Y(:,1))  % See 'colon' in matlab help for why we use 'Y(:,1)' here.  
+end
+    %title(['y versus tau, eps=', num2str(eps)])
 %ylim([0,1.2])
 
 
